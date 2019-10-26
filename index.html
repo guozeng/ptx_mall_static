@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>内部商城总页面</title>
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./js/lib/2.12.0/element-ui.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/lib/vue.min.js"></script>
+    <script src="./js/lib/2.12.0/element-ui.min.js"></script>
+</head>
+<body>
+    <div id="app" class="app-box">
+        <!-- 顶部log和搜索 -->
+        <el-row>
+            <el-col :span="9"><div class="logo-box"><img src="./imgs/bd_logo.jpg" alt="logo" class="logo-img"></div></el-col>
+            <el-col :span="15">
+                <div class="search-box">
+                    <el-input
+                    placeholder="搜索"
+                    v-model="searchTxt">
+                        <i slot="suffix" class="el-input__icon el-icon-search"></i>
+                    </el-input>   
+                </div>
+            </el-col>
+        </el-row>
+        <!-- 导航 -->
+        <el-menu :default-active="activeIndex" mode="horizontal" class="nav">
+            <el-menu-item index="1"><a href="index.html">首页</a></el-menu-item>
+            <el-menu-item index="2"><a href="mall.html">内购商城</a></el-menu-item>
+            <el-menu-item index="3"><a href="market">跳骚市场</a></el-menu-item>
+            <el-menu-item index="4"><a href="welfare">周边福利优惠</a></el-menu-item>
+        </el-menu>
+        <!-- 内购商城 -->
+        <div>
+            <el-row>
+                <el-col :span="24"><div class="b-title">内购商城</div></el-col>
+            </el-row>
+            <el-row>
+                <el-col :span="18"><div class="banner-img-box"><a href="#" target="_blank"><img src="./imgs/b1.jpg" alt="内购商城" class="banner-img"></a></div></el-col>
+                <el-col :span="6">
+                    <div class="small-img-wrapper">
+                        <div class="t">热销榜</div>
+                        <div class="small-img-box">
+                            <div class="small-img">
+                                <el-image :src="src" @click="smallImgClick">
+                                    <div slot="placeholder" class="image-slot">
+                                        加载中<span class="dot">...</span>
+                                    </div>
+                                </el-image>
+                            </div>
+                            <div class="small-img">
+                                <el-image :src="src" @click="smallImgClick">
+                                    <div slot="placeholder" class="image-slot">
+                                        加载中<span class="dot">...</span>
+                                    </div>
+                                </el-image>
+                            </div>
+                            <div class="small-img">
+                                <el-image :src="src" @click="smallImgClick">
+                                    <div slot="placeholder" class="image-slot">
+                                        加载中<span class="dot">...</span>
+                                    </div>
+                                </el-image>
+                            </div>
+                            <div class="small-img">
+                                <el-image :src="src" @click="smallImgClick">
+                                    <div slot="placeholder" class="image-slot">
+                                        加载中<span class="dot">...</span>
+                                    </div>
+                                </el-image>
+                            </div>
+                        </div>
+                    </div>
+                </el-col>
+            </el-row>
+        </div>
+        <!-- 跳骚市场 -->
+        <div class="mg-t-40">
+            <el-row>
+                <el-col :span="24"><div class="b-title">跳骚市场</div></el-col>
+            </el-row>
+            <el-row>
+                <el-col :span="18"><div class="banner-img-box"><a href="#" target="_blank"><img src="./imgs/b2.jpg" alt="跳骚市场" class="banner-img"></a></div></el-col>
+                <el-col :span="6">
+                    <div class="small-img-wrapper">
+                        <div class="t">推新榜</div>
+                        <div class="small-img-box">
+                            <div class="small-img">
+                                <el-image :src="src2" @click="smallImgClick">
+                                    <div slot="placeholder" class="image-slot">
+                                        加载中<span class="dot">...</span>
+                                    </div>
+                                </el-image>
+                            </div>
+                            <div class="small-img">
+                                <el-image :src="src2" @click="smallImgClick">
+                                    <div slot="placeholder" class="image-slot">
+                                        加载中<span class="dot">...</span>
+                                    </div>
+                                </el-image>
+                            </div>
+                            <div class="small-img">
+                                <el-image :src="src2" @click="smallImgClick">
+                                    <div slot="placeholder" class="image-slot">
+                                        加载中<span class="dot">...</span>
+                                    </div>
+                                </el-image>
+                            </div>
+                            <div class="small-img">
+                                <el-image :src="src2" @click="smallImgClick">
+                                    <div slot="placeholder" class="image-slot">
+                                        加载中<span class="dot">...</span>
+                                    </div>
+                                </el-image>
+                            </div>
+                        </div>
+                    </div>
+                </el-col>
+            </el-row>
+        </div>
+        <!-- 周边福利优惠 -->
+        <div class="mg-t-40">
+            <el-row>
+                <el-col :span="24"><div class="b-title">周边福利优惠</div></el-col>
+            </el-row>
+            <el-row>
+                <el-col :span="18"><div class="banner-img-box"><a href="#" target="_blank"><img src="./imgs/b3.jpg" alt="周边福利优惠" class="banner-img"></a></div></el-col>
+                <el-col :span="6">
+                    <div class="small-img-wrapper">
+                        <div class="t">最新福利推荐</div>
+                        <div class="small-img-box">
+                            <div class="small-img">
+                                <el-image :src="src3" @click="smallImgClick">
+                                    <div slot="placeholder" class="image-slot">
+                                        加载中<span class="dot">...</span>
+                                    </div>
+                                </el-image>
+                            </div>
+                            <div class="small-img">
+                                <el-image :src="src3" @click="smallImgClick">
+                                    <div slot="placeholder" class="image-slot">
+                                        加载中<span class="dot">...</span>
+                                    </div>
+                                </el-image>
+                            </div>
+                            <div class="small-img">
+                                <el-image :src="src3" @click="smallImgClick">
+                                    <div slot="placeholder" class="image-slot">
+                                        加载中<span class="dot">...</span>
+                                    </div>
+                                </el-image>
+                            </div>
+                            <div class="small-img">
+                                <el-image :src="src3" @click="smallImgClick">
+                                    <div slot="placeholder" class="image-slot">
+                                        加载中<span class="dot">...</span>
+                                    </div>
+                                </el-image>
+                            </div>
+                        </div>
+                    </div>
+                </el-col>
+            </el-row>
+        </div>
+        <!-- 工牌福利 -->
+        <div class="mg-t-40">
+            <el-row>
+                <el-col :span="24"><div class="b-title">工牌福利</div></el-col>
+            </el-row>
+            <div class="gpfl-wrapper">
+                <div class="item" @click="cardClick">
+                    <p class="t">习近平向2019年“读懂中国”广州国际会议致贺信</p>
+                    <div class="c">
+                        <div class="desc">习近平指出，当前，经济全球化遇到一些曲折困难，但经济全球化</div>
+                        <div><img src="./imgs/sj.jpeg"></div>
+                    </div>
+                </div>
+                <div class="item" @click="cardClick">
+                    <p class="t">习近平向2019年“读懂中国”广州国际会议致贺信</p>
+                    <div class="c">
+                        <div class="desc">习近平指出，当前，经济全球化遇到一些曲折困难</div>
+                        <div><img src="./imgs/sj.jpeg"></div>
+                    </div>
+                </div>
+                <div class="item" @click="cardClick">
+                    <p class="t">习近平向2019年“读懂中国”广州国际会议致贺信</p>
+                    <div class="c">
+                        <div class="desc">习近平指出，当前，经济全球化遇到一些曲折困难，但经济全球化</div>
+                        <div><img src="./imgs/sj.jpeg"></div>
+                    </div>
+                </div>
+                <div class="item" @click="cardClick">
+                    <p class="t">习近平向2019年“读懂中国”广州国际会议致贺信</p>
+                    <div class="c">
+                        <div class="desc">习近平指出，当前，经济全球化遇到一些曲折困难，但经济全球化</div>
+                        <div><img src="./imgs/sj.jpeg"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-line"><el-divider></el-divider></div>
+        <div class="copy">&copy;2019 腾讯计算机系统科技有限公司</div>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                searchTxt: '',
+                activeIndex: '1',
+                src: './imgs/1.jpg',
+                src2: './imgs/3.jpg',
+                src3: './imgs/4.jpg',
+            },
+            methods: {
+                smallImgClick() {
+                    alert('官人，别闹')
+                },
+                cardClick() {
+                    alert('工牌福利小卡片点击了')
+                },
+            },
+        })
+    </script>
+</body>
+</html>

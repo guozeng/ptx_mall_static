@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>跳骚市场</title>
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./js/lib/2.12.0/element-ui.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/lib/vue.min.js"></script>
+    <script src="./js/lib/2.12.0/element-ui.min.js"></script>
+</head>
+<body>
+    <div id="app" class="app-box">
+        <!-- 顶部log和搜索 -->
+        <el-row>
+            <el-col :span="7"><div class="logo-box"><img src="./imgs/bd_logo.jpg" alt="logo" class="logo-img"></div></el-col>
+            <el-col :span="11">
+                <div class="search-box-mall">
+                    <el-input
+                    placeholder="搜索"
+                    v-model="searchTxt">
+                        <i slot="suffix" class="el-input__icon el-icon-search"></i>
+                    </el-input>   
+                </div>
+            </el-col>
+            <el-col :span="6">
+                <div class="mall-order-box">
+                    <div>我的关注</div>
+                    <div>出售中</div>
+                    <div>已售出</div>
+                </div>
+            </el-col>
+        </el-row>
+        <!-- 导航 -->
+        <el-menu :default-active="activeIndex" mode="horizontal" class="nav">
+            <el-menu-item index="1"><a href="index.html">首页</a></el-menu-item>
+            <el-menu-item index="2"><a href="mall.html">内购商城</a></el-menu-item>
+            <el-menu-item index="3"><a href="market">跳骚市场</a></el-menu-item>
+            <el-menu-item index="4"><a href="welfare">周边福利优惠</a></el-menu-item>
+        </el-menu>
+        <div class="publish">
+            <div class="item" @click="publishClick(1)">
+                <div class="a"><i class="el-icon-circle-plus"></i></div>
+                <div class="b">
+                    <div class="d">发布闲置</div>
+                    <div class="e">闲置物品转让</div>
+                </div>
+            </div>
+            <div class="item" @click="publishClick(2)">
+                <div class="a"><i class="el-icon-circle-plus"></i></div>
+                <div class="b">
+                    <div class="d">需求发布</div>
+                    <div class="e">收购物品，找房等</div>
+                </div>
+            </div>
+        </div>
+        <div class="catg">
+            <a href="#">新推</a> |
+            <a href="#">数码产品</a> |
+            <a href="#">租房</a> |
+            <a href="#">美妆</a> |
+            <a href="#">家电</a> |
+            <a href="#">居家用品</a> |
+            <a href="#">票卷</a> |
+            <a href="#">书籍</a> |
+            <a href="#">零食</a> |
+            <a href="#">免费送</a> |
+            <a href="#">其他</a>
+        </div>
+        <!-- 最新商品 -->
+        <div class="mg-t-10">
+            <el-row>
+                <el-col :span="24"><div class="b-title">最新商品</div></el-col>
+            </el-row>
+            <div class="mall-item-box">
+                <div class="item-img">
+                    <div class="ig">
+                        <el-image :src="src2" @click="smallImgClick">
+                            <div slot="placeholder" class="image-slot">
+                                加载中<span class="dot">...</span>
+                            </div>
+                        </el-image>
+                    </div>
+                    <ul class="item-img-list">
+                        <li><img src="./imgs/4.jpg"></li>
+                        <li><img src="./imgs/4.jpg"></li>
+                        <li><img src="./imgs/4.jpg"></li>
+                    </ul>
+                    <div class="m-name">头戴耳机 MP8H 134323AD</div>
+                    <div class="m-price">¥ 120.00</div>
+                    <div class="name">发布人： 朱明春 农业部</div>
+                    <div class="num">
+                        <span>销量： 50</span>
+                        <span>评价： 50</span>
+                    </div>
+                </div>
+                <div class="item-img">
+                    <div class="ig">
+                        <el-image :src="src2" @click="smallImgClick">
+                            <div slot="placeholder" class="image-slot">
+                                加载中<span class="dot">...</span>
+                            </div>
+                        </el-image>
+                    </div>
+                    <ul class="item-img-list">
+                        <li><img src="./imgs/4.jpg"></li>
+                        <li><img src="./imgs/4.jpg"></li>
+                        <li><img src="./imgs/4.jpg"></li>
+                    </ul>
+                    <div class="m-name">头戴耳机 MP8H 134323AD</div>
+                    <div class="m-price">¥ 120.00</div>
+                    <div class="name">发布人： 朱明春 农业部</div>
+                    <div class="num">
+                        <span>销量： 50</span>
+                        <span>评价： 50</span>
+                    </div>
+                </div>
+                <div class="item-img">
+                    <div class="ig">
+                        <el-image :src="src2" @click="smallImgClick">
+                            <div slot="placeholder" class="image-slot">
+                                加载中<span class="dot">...</span>
+                            </div>
+                        </el-image>
+                    </div>
+                    <ul class="item-img-list">
+                        <li><img src="./imgs/4.jpg"></li>
+                        <li><img src="./imgs/4.jpg"></li>
+                        <li><img src="./imgs/4.jpg"></li>
+                    </ul>
+                    <div class="m-name">头戴耳机 MP8H 134323AD</div>
+                    <div class="m-price">¥ 120.00</div>
+                    <div class="name">发布人： 朱明春 农业部</div>
+                    <div class="num">
+                        <span>销量： 50</span>
+                        <span>评价： 50</span>
+                    </div>
+                </div>
+                <div class="item-img">
+                    <div class="ig">
+                        <el-image :src="src2" @click="smallImgClick">
+                            <div slot="placeholder" class="image-slot">
+                                加载中<span class="dot">...</span>
+                            </div>
+                        </el-image>
+                    </div>
+                    <ul class="item-img-list">
+                        <li><img src="./imgs/4.jpg"></li>
+                        <li><img src="./imgs/4.jpg"></li>
+                        <li><img src="./imgs/4.jpg"></li>
+                    </ul>
+                    <div class="m-name">头戴耳机 MP8H 134323AD</div>
+                    <div class="m-price">¥ 120.00</div>
+                    <div class="name">发布人： 朱明春 农业部</div>
+                    <div class="num">
+                        <span>销量： 50</span>
+                        <span>评价： 50</span>
+                    </div>
+                </div>
+                <div class="item-img">
+                    <div class="ig">
+                        <el-image :src="src2" @click="smallImgClick">
+                            <div slot="placeholder" class="image-slot">
+                                加载中<span class="dot">...</span>
+                            </div>
+                        </el-image>
+                    </div>
+                    <ul class="item-img-list">
+                        <li><img src="./imgs/4.jpg"></li>
+                        <li><img src="./imgs/4.jpg"></li>
+                        <li><img src="./imgs/4.jpg"></li>
+                    </ul>
+                    <div class="m-name">头戴耳机 MP8H 134323AD</div>
+                    <div class="m-price">¥ 120.00</div>
+                    <div class="name">发布人： 朱明春 农业部</div>
+                    <div class="num">
+                        <span>销量： 50</span>
+                        <span>评价： 50</span>
+                    </div>
+                </div>
+                <div class="item-img">
+                    <div class="ig">
+                        <el-image :src="src2" @click="smallImgClick">
+                            <div slot="placeholder" class="image-slot">
+                                加载中<span class="dot">...</span>
+                            </div>
+                        </el-image>
+                    </div>
+                    <ul class="item-img-list">
+                        <li><img src="./imgs/4.jpg"></li>
+                        <li><img src="./imgs/4.jpg"></li>
+                        <li><img src="./imgs/4.jpg"></li>
+                    </ul>
+                    <div class="m-name">头戴耳机 MP8H 134323AD</div>
+                    <div class="m-price">¥ 120.00</div>
+                    <div class="name">发布人： 朱明春 农业部</div>
+                    <div class="num">
+                        <span>销量： 50</span>
+                        <span>评价： 50</span>
+                    </div>
+                </div>
+                <div class="item-img">
+                    <div class="ig">
+                        <el-image :src="src2" @click="smallImgClick">
+                            <div slot="placeholder" class="image-slot">
+                                加载中<span class="dot">...</span>
+                            </div>
+                        </el-image>
+                    </div>
+                    <ul class="item-img-list">
+                        <li><img src="./imgs/4.jpg"></li>
+                        <li><img src="./imgs/4.jpg"></li>
+                        <li><img src="./imgs/4.jpg"></li>
+                    </ul>
+                    <div class="m-name">头戴耳机 MP8H 134323AD</div>
+                    <div class="m-price">¥ 120.00</div>
+                    <div class="name">发布人： 朱明春 农业部</div>
+                    <div class="num">
+                        <span>销量： 50</span>
+                        <span>评价： 50</span>
+                    </div>
+                </div>
+                <div class="item-img">
+                    <div class="ig">
+                        <el-image :src="src2" @click="smallImgClick">
+                            <div slot="placeholder" class="image-slot">
+                                加载中<span class="dot">...</span>
+                            </div>
+                        </el-image>
+                    </div>
+                    <ul class="item-img-list">
+                        <li><img src="./imgs/4.jpg"></li>
+                        <li><img src="./imgs/4.jpg"></li>
+                        <li><img src="./imgs/4.jpg"></li>
+                    </ul>
+                    <div class="m-name">头戴耳机 MP8H 134323AD</div>
+                    <div class="m-price">¥ 120.00</div>
+                    <div class="name">发布人： 朱明春 农业部</div>
+                    <div class="num">
+                        <span>销量： 50</span>
+                        <span>评价： 50</span>
+                    </div>
+                </div>
+                <div class="item-img">
+                    <div class="ig">
+                        <el-image :src="src2" @click="smallImgClick">
+                            <div slot="placeholder" class="image-slot">
+                                加载中<span class="dot">...</span>
+                            </div>
+                        </el-image>
+                    </div>
+                    <ul class="item-img-list">
+                        <li><img src="./imgs/4.jpg"></li>
+                        <li><img src="./imgs/4.jpg"></li>
+                        <li><img src="./imgs/4.jpg"></li>
+                    </ul>
+                    <div class="m-name">头戴耳机 MP8H 134323AD</div>
+                    <div class="m-price">¥ 120.00</div>
+                    <div class="name">发布人： 朱明春 农业部</div>
+                    <div class="num">
+                        <span>销量： 50</span>
+                        <span>评价： 50</span>
+                    </div>
+                </div>
+                <div class="item-img">
+                    <div class="ig">
+                        <el-image :src="src2" @click="smallImgClick">
+                            <div slot="placeholder" class="image-slot">
+                                加载中<span class="dot">...</span>
+                            </div>
+                        </el-image>
+                    </div>
+                    <ul class="item-img-list">
+                        <li><img src="./imgs/4.jpg"></li>
+                        <li><img src="./imgs/4.jpg"></li>
+                        <li><img src="./imgs/4.jpg"></li>
+                    </ul>
+                    <div class="m-name">头戴耳机 MP8H 134323AD</div>
+                    <div class="m-price">¥ 120.00</div>
+                    <div class="name">发布人： 朱明春 农业部</div>
+                    <div class="num">
+                        <span>销量： 50</span>
+                        <span>评价： 50</span>
+                    </div>
+                </div>
+                <div class="item-img">
+                    <div class="ig">
+                        <el-image :src="src2" @click="smallImgClick">
+                            <div slot="placeholder" class="image-slot">
+                                加载中<span class="dot">...</span>
+                            </div>
+                        </el-image>
+                    </div>
+                    <ul class="item-img-list">
+                        <li><img src="./imgs/4.jpg"></li>
+                        <li><img src="./imgs/4.jpg"></li>
+                        <li><img src="./imgs/4.jpg"></li>
+                    </ul>
+                    <div class="m-name">头戴耳机 MP8H 134323AD</div>
+                    <div class="m-price">¥ 120.00</div>
+                    <div class="name">发布人： 朱明春 农业部</div>
+                    <div class="num">
+                        <span>销量： 50</span>
+                        <span>评价： 50</span>
+                    </div>
+                </div>
+                <div class="item-img">
+                    <div class="ig">
+                        <el-image :src="src2" @click="smallImgClick">
+                            <div slot="placeholder" class="image-slot">
+                                加载中<span class="dot">...</span>
+                            </div>
+                        </el-image>
+                    </div>
+                    <ul class="item-img-list">
+                        <li><img src="./imgs/4.jpg"></li>
+                        <li><img src="./imgs/4.jpg"></li>
+                        <li><img src="./imgs/4.jpg"></li>
+                    </ul>
+                    <div class="m-name">头戴耳机 MP8H 134323AD</div>
+                    <div class="m-price">¥ 120.00</div>
+                    <div class="name">发布人： 朱明春 农业部</div>
+                    <div class="num">
+                        <span>销量： 50</span>
+                        <span>评价： 50</span>
+                    </div>
+                </div>
+                <div class="item-img">
+                    <div class="ig">
+                        <el-image :src="src2" @click="smallImgClick">
+                            <div slot="placeholder" class="image-slot">
+                                加载中<span class="dot">...</span>
+                            </div>
+                        </el-image>
+                    </div>
+                    <ul class="item-img-list">
+                        <li><img src="./imgs/4.jpg"></li>
+                        <li><img src="./imgs/4.jpg"></li>
+                        <li><img src="./imgs/4.jpg"></li>
+                    </ul>
+                    <div class="m-name">头戴耳机 MP8H 134323AD</div>
+                    <div class="m-price">¥ 120.00</div>
+                    <div class="name">发布人： 朱明春 农业部</div>
+                    <div class="num">
+                        <span>销量： 50</span>
+                        <span>评价： 50</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="page pd-t-10">
+            <el-pagination
+            background
+            layout="prev, pager, next"
+            :total="1000">
+            </el-pagination>
+        </div>
+        <div class="footer-line"><el-divider></el-divider></div>
+        <div class="copy">&copy;2019 腾讯计算机系统科技有限公司</div>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                searchTxt: '',
+                activeIndex: '3',
+                src2: './imgs/4.jpg',
+            },
+            methods: {
+                smallImgClick() {
+                    alert('商品被点击')
+                },
+                publishClick(type) {
+                    alert('发布按钮被点击了' + type)
+                }
+            },
+        })
+    </script>
+</body>
+</html>

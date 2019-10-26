@@ -1,0 +1,75 @@
+body{margin: 0;}
+ul{margin: 0; list-style: none; padding: 0;}
+.app-box{width: 1000px; margin: 0 auto; padding-bottom: 60px;}
+.logo-box{padding-left: 20px;}
+.logo-img{width: 200px; height: 100px;}
+.search-box{height: 100px; display: flex; align-items: center; width: 60%;}
+.search-box-mall{height: 100px; display: flex; align-items: center; width: 90%;}
+.nav a{
+    font-size: 20px;
+    text-decoration: none;
+}
+.banner-img-box{width: 730px; height: 330px; overflow: hidden;}
+.banner-img{display: block; width: auto; height: 330px;}
+.b-title{padding: 20px 0 10px 0;}
+.small-img-wrapper{background: #eee; height: 330px; overflow: hidden;}
+.small-img-wrapper .t{padding: 8px 10px;}
+.small-img-box{display: flex; padding: 0 10px; flex-wrap: wrap; justify-content: space-between;}
+.small-img{width: 110px; height: 135px; overflow: hidden; cursor: pointer; margin-bottom: 10px;}
+.mg-r-10{margin-right: 10px;}
+.mg-b-10{margin-bottom: 10px;}
+.mg-t-40{margin-top: 40px;}
+.mg-t-30{margin-top: 30px;}
+.mg-t-10{margin-top: 10px;}
+.mg-t--10{margin-top: -10px;}
+.pd-t-10{padding-top: 10px;}
+
+.gpfl-wrapper{display: flex; justify-content: space-between;}
+.gpfl-wrapper .item{width: 215px; cursor: pointer; padding: 10px; box-shadow: 1px 1px 2px #ccc;}
+.gpfl-wrapper .item:hover{box-shadow: 1px 1px 3px #999;}
+.gpfl-wrapper .item .t{margin: 0; color: rgb(66, 127, 241);font-size: 16px;}
+.gpfl-wrapper .item .c{display: flex; justify-content: space-between; font-size: 14px;margin-top: 10px;}
+.gpfl-wrapper .item .c img{width: 60px; height: 60px;}
+.gpfl-wrapper .item .c .desc{margin-right: 10px; height: 64px;overflow: hidden;}
+.footer-line{padding-top: 30px;}
+.copy{font-size: 13px; color: #999;}
+
+.mall-order-box{height: 100px; display: flex; align-items: center; justify-content: space-between;}
+.mall-order-box>div{border: 1px solid #ccc; padding: 8px 10px; cursor: pointer; font-size: 15px;}
+.mall-order-box .item i{font-size: 16px; font-weight: bold; color: #F56C6C;}
+.mall-order-box .order-name{margin-left: 20px;color: #F56C6C;}
+.mall-order-box .el-badge__content{font-size: 10px; height: 16px; line-height: 16px;}
+
+.mall-header{display: flex; height: 321px; margin-top: 20px; color: #666;}
+.mall-header .col-1{flex-basis: 250px;background: #eee; padding: 10px;}
+.mall-header .col-2{flex-basis: 530px; margin: 0 10px;height: 321px; overflow: hidden;}
+.mall-header .col-2 img{height: 321px; width: auto;}
+.mall-header .col-3{flex-basis: 160px;background: #eee; padding: 10px;}
+.mall-header .t{font-weight: 700; color: #666; margin-bottom: 10px;}
+.mall-header li{padding: 3px 0;}
+.mall-header li a{text-decoration: none; color: #666;}
+.mall-header li a:hover{color: rgb(66, 127, 241);}
+
+.mall-item-box{display: flex; flex-wrap: wrap; justify-content: space-between;}
+.mall-item-box .item-img{width: 235px; box-shadow: 1px 1px 2px #ccc; margin-bottom: 20px;}
+.mall-item-box .item-img:hover{box-shadow: 1px 1px 3px #666;}
+.mall-item-box .item-img .ig{height: 220px; overflow: hidden;}
+.mall-item-box .item-img .item-img-list{display: flex; margin: 5px;}
+.mall-item-box .item-img .item-img-list li{width: 40px; height: 40px; overflow: hidden; border: 1px solid #ccc; margin-right: 10px;}
+.mall-item-box .item-img .item-img-list li img{width: 100%;}
+.mall-item-box .price{color: #F56C6C; padding-left: 5px; margin-top: 10px; font-weight: 700;}
+.mall-item-box .m-price{color: #F56C6C; padding-left: 5px; margin-top: 5px; font-weight: 700;}
+.mall-item-box .name{margin-top: 5px; padding-left: 5px; font-size: 14px; color: #666;}
+.mall-item-box .m-name{margin-top: 10px; padding-left: 5px; font-size: 14px; color: #666;}
+.mall-item-box .num{font-size: 12px; border-top: 1px dashed #ccc; margin-top: 5px; padding: 5px; color: #666; display: flex; justify-content: space-between;}
+.page{display: flex; justify-content: center;}
+
+.publish{display: flex; margin-top: 20px; justify-content: space-between;}
+.publish .item{width: 400px; background: #eee; border: 1px solid #ccc; display: flex; padding: 10px; align-items: center;}
+.publish .item .a i{font-size: 40px; color: rgb(85, 80, 39);}
+.publish .item .b{margin-left: 30px;}
+.publish .item .d{font-size: 24px; font-weight: 700; color: #666;}
+.publish .item .e{font-size: 16px; color: #666; margin-top: 10px;}
+.catg{background: #eee; border: 1px solid #ccc; display: flex; padding: 10px; align-items: center; margin-top: 30px; justify-content: space-between; color: #999;}
+.catg a{color: #666; text-decoration: none;}
+.catg a:hover{color: rgb(66, 127, 241);}

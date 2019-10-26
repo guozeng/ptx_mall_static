@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>内部商城</title>
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./js/lib/2.12.0/element-ui.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/lib/vue.min.js"></script>
+    <script src="./js/lib/2.12.0/element-ui.min.js"></script>
+</head>
+<body>
+    <div id="app" class="app-box">
+        <!-- 顶部log和搜索 -->
+        <el-row>
+            <el-col :span="7"><div class="logo-box"><img src="./imgs/bd_logo.jpg" alt="logo" class="logo-img"></div></el-col>
+            <el-col :span="11">
+                <div class="search-box-mall">
+                    <el-input
+                    placeholder="搜索"
+                    v-model="searchTxt">
+                        <i slot="suffix" class="el-input__icon el-icon-search"></i>
+                    </el-input>   
+                </div>
+            </el-col>
+            <el-col :span="6">
+                <div class="mall-order-box">
+                    <div>
+                        <el-badge value="10" class="item">
+                            <i class="el-icon-shopping-cart-2"></i>
+                        </el-badge>
+                        <span class="order-name">我的购物车</span>
+                    </div>
+                    <div>我的订单</div>
+                </div>
+            </el-col>
+        </el-row>
+        <!-- 导航 -->
+        <el-menu :default-active="activeIndex" mode="horizontal" class="nav">
+            <el-menu-item index="1"><a href="index.html">首页</a></el-menu-item>
+            <el-menu-item index="2"><a href="mall.html">内购商城</a></el-menu-item>
+            <el-menu-item index="3"><a href="market">跳骚市场</a></el-menu-item>
+            <el-menu-item index="4"><a href="welfare">周边福利优惠</a></el-menu-item>
+        </el-menu>
+        <div class="mall-header">
+            <div class="col-1">
+                <div class="t">商品分类</div>
+                <ul>
+                    <li><span>数码影音</span> | <span>耳机</span> / <span>音箱</span></li>
+                    <li><span>数码影音</span> | <span>耳机</span> / <span>音箱</span></li>
+                    <li><span>数码影音</span> | <span>耳机</span> / <span>音箱</span></li>
+                    <li><span>数码影音</span> | <span>耳机</span> / <span>音箱</span></li>
+                    <li><span>数码影音</span> | <span>耳机</span> / <span>音箱</span></li>
+                    <li><span>数码影音</span> | <span>耳机</span> / <span>音箱</span></li>
+                    <li><span>数码影音</span> | <span>耳机</span> / <span>音箱</span></li>
+                    <li><span>数码影音</span> | <span>耳机</span> / <span>音箱</span></li>
+                    <li><span>数码影音</span> | <span>耳机</span> / <span>音箱</span></li>
+                    <li><span>数码影音</span> | <span>耳机</span> / <span>音箱</span></li>
+                </ul>
+            </div>
+            <div class="col-2">
+                <div><a href="#"><img src="./imgs/b3.jpg"></a></div>
+            </div>
+            <div class="col-3">
+                <div class="t">公告栏</div>
+                <ul>
+                    <li><a href="#" target="_blank">特惠 电脑新时代</a></li>
+                    <li><a href="#" target="_blank">特惠 电脑新时代</a></li>
+                    <li><a href="#" target="_blank">特惠 电脑新时代</a></li>
+                    <li><a href="#" target="_blank">特惠 电脑新时代</a></li>
+                    <li><a href="#" target="_blank">特惠 电脑新时代</a></li>
+                    <li><a href="#" target="_blank">特惠 电脑新时代</a></li>
+                    <li><a href="#" target="_blank">特惠 电脑新时代</a></li>
+                    <li><a href="#" target="_blank">特惠 电脑新时代</a></li>
+                    <li><a href="#" target="_blank">特惠 电脑新时代</a></li>
+                    <li><a href="#" target="_blank">特惠 电脑新时代</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- 人气商品 -->
+        <div class="mg-t-10">
+            <el-row>
+                <el-col :span="24"><div class="b-title">人气商品</div></el-col>
+            </el-row>
+            <div class="mall-item-box">
+                <div class="item-img">
+                    <div class="ig">
+                        <el-image :src="src2" @click="smallImgClick">
+                            <div slot="placeholder" class="image-slot">
+                                加载中<span class="dot">...</span>
+                            </div>
+                        </el-image>
+                    </div>
+                    <ul class="item-img-list">
+                        <li><img src="./imgs/4.jpg"></li>
+                        <li><img src="./imgs/4.jpg"></li>
+                        <li><img src="./imgs/4.jpg"></li>
+                    </ul>
+                    <div class="price">¥ 120.00</div>
+                    <div class="name">头戴耳机 MP8H 134323AD</div>
+                    <div class="num">
+                        <span>销量： 50</span>
+                        <span>评价： 50</span>
+                    </div>
+                </div>
+                <div class="item-img">
+                    <div class="ig">
+                        <el-image :src="src2" @click="smallImgClick">
+                            <div slot="placeholder" class="image-slot">
+                                加载中<span class="dot">...</span>
+                            </div>
+                        </el-image>
+                    </div>
+                    <ul class="item-img-list">
+                        <li><img src="./imgs/4.jpg"></li>
+                        <li><img src="./imgs/4.jpg"></li>
+                        <li><img src="./imgs/4.jpg"></li>
+                    </ul>
+                    <div class="price">¥ 120.00</div>
+                    <div class="name">头戴耳机 MP8H 134323AD</div>
+                    <div class="num">
+                        <span>销量： 50</span>
+                        <span>评价： 50</span>
+                    </div>
+                </div>
+                <div class="item-img">
+                    <div class="ig">
+                        <el-image :src="src2" @click="smallImgClick">
+                            <div slot="placeholder" class="image-slot">
+                                加载中<span class="dot">...</span>
+                            </div>
+                        </el-image>
+                    </div>
+                    <ul class="item-img-list">
+                        <li><img src="./imgs/4.jpg"></li>
+                        <li><img src="./imgs/4.jpg"></li>
+                        <li><img src="./imgs/4.jpg"></li>
+                    </ul>
+                    <div class="price">¥ 120.00</div>
+                    <div class="name">头戴耳机 MP8H 134323AD</div>
+                    <div class="num">
+                        <span>销量： 50</span>
+                        <span>评价： 50</span>
+                    </div>
+                </div>
+                <div class="item-img">
+                    <div class="ig">
+                        <el-image :src="src2" @click="smallImgClick">
+                            <div slot="placeholder" class="image-slot">
+                                加载中<span class="dot">...</span>
+                            </div>
+                        </el-image>
+                    </div>
+                    <ul class="item-img-list">
+                        <li><img src="./imgs/4.jpg"></li>
+                        <li><img src="./imgs/4.jpg"></li>
+                        <li><img src="./imgs/4.jpg"></li>
+                    </ul>
+                    <div class="price">¥ 120.00</div>
+                    <div class="name">头戴耳机 MP8H 134323AD</div>
+                    <div class="num">
+                        <span>销量： 50</span>
+                        <span>评价： 50</span>
+                    </div>
+                </div>
+                <div class="item-img">
+                    <div class="ig">
+                        <el-image :src="src2" @click="smallImgClick">
+                            <div slot="placeholder" class="image-slot">
+                                加载中<span class="dot">...</span>
+                            </div>
+                        </el-image>
+                    </div>
+                    <ul class="item-img-list">
+                        <li><img src="./imgs/4.jpg"></li>
+                        <li><img src="./imgs/4.jpg"></li>
+                        <li><img src="./imgs/4.jpg"></li>
+                    </ul>
+                    <div class="price">¥ 120.00</div>
+                    <div class="name">头戴耳机 MP8H 134323AD</div>
+                    <div class="num">
+                        <span>销量： 50</span>
+                        <span>评价： 50</span>
+                    </div>
+                </div>
+                <div class="item-img">
+                    <div class="ig">
+                        <el-image :src="src2" @click="smallImgClick">
+                            <div slot="placeholder" class="image-slot">
+                                加载中<span class="dot">...</span>
+                            </div>
+                        </el-image>
+                    </div>
+                    <ul class="item-img-list">
+                        <li><img src="./imgs/4.jpg"></li>
+                        <li><img src="./imgs/4.jpg"></li>
+                        <li><img src="./imgs/4.jpg"></li>
+                    </ul>
+                    <div class="price">¥ 120.00</div>
+                    <div class="name">头戴耳机 MP8H 134323AD</div>
+                    <div class="num">
+                        <span>销量： 50</span>
+                        <span>评价： 50</span>
+                    </div>
+                </div>
+                <div class="item-img">
+                    <div class="ig">
+                        <el-image :src="src2" @click="smallImgClick">
+                            <div slot="placeholder" class="image-slot">
+                                加载中<span class="dot">...</span>
+                            </div>
+                        </el-image>
+                    </div>
+                    <ul class="item-img-list">
+                        <li><img src="./imgs/4.jpg"></li>
+                        <li><img src="./imgs/4.jpg"></li>
+                        <li><img src="./imgs/4.jpg"></li>
+                    </ul>
+                    <div class="price">¥ 120.00</div>
+                    <div class="name">头戴耳机 MP8H 134323AD</div>
+                    <div class="num">
+                        <span>销量： 50</span>
+                        <span>评价： 50</span>
+                    </div>
+                </div>
+                <div class="item-img">
+                    <div class="ig">
+                        <el-image :src="src2" @click="smallImgClick">
+                            <div slot="placeholder" class="image-slot">
+                                加载中<span class="dot">...</span>
+                            </div>
+                        </el-image>
+                    </div>
+                    <ul class="item-img-list">
+                        <li><img src="./imgs/4.jpg"></li>
+                        <li><img src="./imgs/4.jpg"></li>
+                        <li><img src="./imgs/4.jpg"></li>
+                    </ul>
+                    <div class="price">¥ 120.00</div>
+                    <div class="name">头戴耳机 MP8H 134323AD</div>
+                    <div class="num">
+                        <span>销量： 50</span>
+                        <span>评价： 50</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 最新商品 -->
+        <div class="mg-t--10">
+            <el-row>
+                <el-col :span="24"><div class="b-title">最新商品</div></el-col>
+            </el-row>
+            <div class="mall-item-box">
+                <div class="item-img">
+                    <div class="ig">
+                        <el-image :src="src2" @click="smallImgClick">
+                            <div slot="placeholder" class="image-slot">
+                                加载中<span class="dot">...</span>
+                            </div>
+                        </el-image>
+                    </div>
+                    <ul class="item-img-list">
+                        <li><img src="./imgs/4.jpg"></li>
+                        <li><img src="./imgs/4.jpg"></li>
+                        <li><img src="./imgs/4.jpg"></li>
+                    </ul>
+                    <div class="price">¥ 120.00</div>
+                    <div class="name">头戴耳机 MP8H 134323AD</div>
+                    <div class="num">
+                        <span>销量： 50</span>
+                        <span>评价： 50</span>
+                    </div>
+                </div>
+                <div class="item-img">
+                    <div class="ig">
+                        <el-image :src="src2" @click="smallImgClick">
+                            <div slot="placeholder" class="image-slot">
+                                加载中<span class="dot">...</span>
+                            </div>
+                        </el-image>
+                    </div>
+                    <ul class="item-img-list">
+                        <li><img src="./imgs/4.jpg"></li>
+                        <li><img src="./imgs/4.jpg"></li>
+                        <li><img src="./imgs/4.jpg"></li>
+                    </ul>
+                    <div class="price">¥ 120.00</div>
+                    <div class="name">头戴耳机 MP8H 134323AD</div>
+                    <div class="num">
+                        <span>销量： 50</span>
+                        <span>评价： 50</span>
+                    </div>
+                </div>
+                <div class="item-img">
+                    <div class="ig">
+                        <el-image :src="src2" @click="smallImgClick">
+                            <div slot="placeholder" class="image-slot">
+                                加载中<span class="dot">...</span>
+                            </div>
+                        </el-image>
+                    </div>
+                    <ul class="item-img-list">
+                        <li><img src="./imgs/4.jpg"></li>
+                        <li><img src="./imgs/4.jpg"></li>
+                        <li><img src="./imgs/4.jpg"></li>
+                    </ul>
+                    <div class="price">¥ 120.00</div>
+                    <div class="name">头戴耳机 MP8H 134323AD</div>
+                    <div class="num">
+                        <span>销量： 50</span>
+                        <span>评价： 50</span>
+                    </div>
+                </div>
+                <div class="item-img">
+                    <div class="ig">
+                        <el-image :src="src2" @click="smallImgClick">
+                            <div slot="placeholder" class="image-slot">
+                                加载中<span class="dot">...</span>
+                            </div>
+                        </el-image>
+                    </div>
+                    <ul class="item-img-list">
+                        <li><img src="./imgs/4.jpg"></li>
+                        <li><img src="./imgs/4.jpg"></li>
+                        <li><img src="./imgs/4.jpg"></li>
+                    </ul>
+                    <div class="price">¥ 120.00</div>
+                    <div class="name">头戴耳机 MP8H 134323AD</div>
+                    <div class="num">
+                        <span>销量： 50</span>
+                        <span>评价： 50</span>
+                    </div>
+                </div>
+                <div class="item-img">
+                    <div class="ig">
+                        <el-image :src="src2" @click="smallImgClick">
+                            <div slot="placeholder" class="image-slot">
+                                加载中<span class="dot">...</span>
+                            </div>
+                        </el-image>
+                    </div>
+                    <ul class="item-img-list">
+                        <li><img src="./imgs/4.jpg"></li>
+                        <li><img src="./imgs/4.jpg"></li>
+                        <li><img src="./imgs/4.jpg"></li>
+                    </ul>
+                    <div class="price">¥ 120.00</div>
+                    <div class="name">头戴耳机 MP8H 134323AD</div>
+                    <div class="num">
+                        <span>销量： 50</span>
+                        <span>评价： 50</span>
+                    </div>
+                </div>
+                <div class="item-img">
+                    <div class="ig">
+                        <el-image :src="src2" @click="smallImgClick">
+                            <div slot="placeholder" class="image-slot">
+                                加载中<span class="dot">...</span>
+                            </div>
+                        </el-image>
+                    </div>
+                    <ul class="item-img-list">
+                        <li><img src="./imgs/4.jpg"></li>
+                        <li><img src="./imgs/4.jpg"></li>
+                        <li><img src="./imgs/4.jpg"></li>
+                    </ul>
+                    <div class="price">¥ 120.00</div>
+                    <div class="name">头戴耳机 MP8H 134323AD</div>
+                    <div class="num">
+                        <span>销量： 50</span>
+                        <span>评价： 50</span>
+                    </div>
+                </div>
+                <div class="item-img">
+                    <div class="ig">
+                        <el-image :src="src2" @click="smallImgClick">
+                            <div slot="placeholder" class="image-slot">
+                                加载中<span class="dot">...</span>
+                            </div>
+                        </el-image>
+                    </div>
+                    <ul class="item-img-list">
+                        <li><img src="./imgs/4.jpg"></li>
+                        <li><img src="./imgs/4.jpg"></li>
+                        <li><img src="./imgs/4.jpg"></li>
+                    </ul>
+                    <div class="price">¥ 120.00</div>
+                    <div class="name">头戴耳机 MP8H 134323AD</div>
+                    <div class="num">
+                        <span>销量： 50</span>
+                        <span>评价： 50</span>
+                    </div>
+                </div>
+                <div class="item-img">
+                    <div class="ig">
+                        <el-image :src="src2" @click="smallImgClick">
+                            <div slot="placeholder" class="image-slot">
+                                加载中<span class="dot">...</span>
+                            </div>
+                        </el-image>
+                    </div>
+                    <ul class="item-img-list">
+                        <li><img src="./imgs/4.jpg"></li>
+                        <li><img src="./imgs/4.jpg"></li>
+                        <li><img src="./imgs/4.jpg"></li>
+                    </ul>
+                    <div class="price">¥ 120.00</div>
+                    <div class="name">头戴耳机 MP8H 134323AD</div>
+                    <div class="num">
+                        <span>销量： 50</span>
+                        <span>评价： 50</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 特惠商品 -->
+        <div class="mg-t--10">
+            <el-row>
+                <el-col :span="24"><div class="b-title">特惠商品</div></el-col>
+            </el-row>
+            <div class="mall-item-box">
+                <div class="item-img">
+                    <div class="ig">
+                        <el-image :src="src2" @click="smallImgClick">
+                            <div slot="placeholder" class="image-slot">
+                                加载中<span class="dot">...</span>
+                            </div>
+                        </el-image>
+                    </div>
+                    <ul class="item-img-list">
+                        <li><img src="./imgs/4.jpg"></li>
+                        <li><img src="./imgs/4.jpg"></li>
+                        <li><img src="./imgs/4.jpg"></li>
+                    </ul>
+                    <div class="price">¥ 120.00</div>
+                    <div class="name">头戴耳机 MP8H 134323AD</div>
+                    <div class="num">
+                        <span>销量： 50</span>
+                        <span>评价： 50</span>
+                    </div>
+                </div>
+                <div class="item-img">
+                    <div class="ig">
+                        <el-image :src="src2" @click="smallImgClick">
+                            <div slot="placeholder" class="image-slot">
+                                加载中<span class="dot">...</span>
+                            </div>
+                        </el-image>
+                    </div>
+                    <ul class="item-img-list">
+                        <li><img src="./imgs/4.jpg"></li>
+                        <li><img src="./imgs/4.jpg"></li>
+                        <li><img src="./imgs/4.jpg"></li>
+                    </ul>
+                    <div class="price">¥ 120.00</div>
+                    <div class="name">头戴耳机 MP8H 134323AD</div>
+                    <div class="num">
+                        <span>销量： 50</span>
+                        <span>评价： 50</span>
+                    </div>
+                </div>
+                <div class="item-img">
+                    <div class="ig">
+                        <el-image :src="src2" @click="smallImgClick">
+                            <div slot="placeholder" class="image-slot">
+                                加载中<span class="dot">...</span>
+                            </div>
+                        </el-image>
+                    </div>
+                    <ul class="item-img-list">
+                        <li><img src="./imgs/4.jpg"></li>
+                        <li><img src="./imgs/4.jpg"></li>
+                        <li><img src="./imgs/4.jpg"></li>
+                    </ul>
+                    <div class="price">¥ 120.00</div>
+                    <div class="name">头戴耳机 MP8H 134323AD</div>
+                    <div class="num">
+                        <span>销量： 50</span>
+                        <span>评价： 50</span>
+                    </div>
+                </div>
+                <div class="item-img">
+                    <div class="ig">
+                        <el-image :src="src2" @click="smallImgClick">
+                            <div slot="placeholder" class="image-slot">
+                                加载中<span class="dot">...</span>
+                            </div>
+                        </el-image>
+                    </div>
+                    <ul class="item-img-list">
+                        <li><img src="./imgs/4.jpg"></li>
+                        <li><img src="./imgs/4.jpg"></li>
+                        <li><img src="./imgs/4.jpg"></li>
+                    </ul>
+                    <div class="price">¥ 120.00</div>
+                    <div class="name">头戴耳机 MP8H 134323AD</div>
+                    <div class="num">
+                        <span>销量： 50</span>
+                        <span>评价： 50</span>
+                    </div>
+                </div>
+                <div class="item-img">
+                    <div class="ig">
+                        <el-image :src="src2" @click="smallImgClick">
+                            <div slot="placeholder" class="image-slot">
+                                加载中<span class="dot">...</span>
+                            </div>
+                        </el-image>
+                    </div>
+                    <ul class="item-img-list">
+                        <li><img src="./imgs/4.jpg"></li>
+                        <li><img src="./imgs/4.jpg"></li>
+                        <li><img src="./imgs/4.jpg"></li>
+                    </ul>
+                    <div class="price">¥ 120.00</div>
+                    <div class="name">头戴耳机 MP8H 134323AD</div>
+                    <div class="num">
+                        <span>销量： 50</span>
+                        <span>评价： 50</span>
+                    </div>
+                </div>
+                <div class="item-img">
+                    <div class="ig">
+                        <el-image :src="src2" @click="smallImgClick">
+                            <div slot="placeholder" class="image-slot">
+                                加载中<span class="dot">...</span>
+                            </div>
+                        </el-image>
+                    </div>
+                    <ul class="item-img-list">
+                        <li><img src="./imgs/4.jpg"></li>
+                        <li><img src="./imgs/4.jpg"></li>
+                        <li><img src="./imgs/4.jpg"></li>
+                    </ul>
+                    <div class="price">¥ 120.00</div>
+                    <div class="name">头戴耳机 MP8H 134323AD</div>
+                    <div class="num">
+                        <span>销量： 50</span>
+                        <span>评价： 50</span>
+                    </div>
+                </div>
+                <div class="item-img">
+                    <div class="ig">
+                        <el-image :src="src2" @click="smallImgClick">
+                            <div slot="placeholder" class="image-slot">
+                                加载中<span class="dot">...</span>
+                            </div>
+                        </el-image>
+                    </div>
+                    <ul class="item-img-list">
+                        <li><img src="./imgs/4.jpg"></li>
+                        <li><img src="./imgs/4.jpg"></li>
+                        <li><img src="./imgs/4.jpg"></li>
+                    </ul>
+                    <div class="price">¥ 120.00</div>
+                    <div class="name">头戴耳机 MP8H 134323AD</div>
+                    <div class="num">
+                        <span>销量： 50</span>
+                        <span>评价： 50</span>
+                    </div>
+                </div>
+                <div class="item-img">
+                    <div class="ig">
+                        <el-image :src="src2" @click="smallImgClick">
+                            <div slot="placeholder" class="image-slot">
+                                加载中<span class="dot">...</span>
+                            </div>
+                        </el-image>
+                    </div>
+                    <ul class="item-img-list">
+                        <li><img src="./imgs/4.jpg"></li>
+                        <li><img src="./imgs/4.jpg"></li>
+                        <li><img src="./imgs/4.jpg"></li>
+                    </ul>
+                    <div class="price">¥ 120.00</div>
+                    <div class="name">头戴耳机 MP8H 134323AD</div>
+                    <div class="num">
+                        <span>销量： 50</span>
+                        <span>评价： 50</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="page pd-t-10">
+            <el-pagination
+            background
+            layout="prev, pager, next"
+            :total="1000">
+            </el-pagination>
+        </div>
+        <div class="footer-line"><el-divider></el-divider></div>
+        <div class="copy">&copy;2019 腾讯计算机系统科技有限公司</div>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                searchTxt: '',
+                activeIndex: '2',
+                src2: './imgs/4.jpg',
+            },
+            methods: {
+                smallImgClick() {
+                    alert('商品被点击')
+                }
+            },
+        })
+    </script>
+</body>
+</html>
